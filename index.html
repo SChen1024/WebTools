@@ -89,8 +89,9 @@
             var seconds = dat.getSeconds() //获取秒
             var ms = dat.getMilliseconds() //获取ms
 
-            var angle_base = pi / 180 * (360 / 12);
+            var angle_base = pi / 180 * (360 / 1000);
             var ms_angle = angle_base * ms;
+            // console.log("ms_angle:" + ms_angle)
             var seconds_angle = pi / 180 * (360 / 60) * seconds //计算秒针的弧度
             var minuntes_angle = pi / 180 * (360 / 60) * minuntes + seconds_angle / 60 // 计算分针的弧度
             var hours_angle = pi / 180 * (360 / 12) * hours + minuntes_angle / 12 // 计算时针的弧度
@@ -148,7 +149,7 @@
         function clear() //清除画布
         {
             var Tools = document.getElementById("Canvas")
-            console.log("2")
+                // console.log("2")
             var ss = Tools.getContext("2d")
             ss.clearRect(0, 0, 500, 500)
         }
