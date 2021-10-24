@@ -74,6 +74,7 @@
 
         }
 
+
         function draw_HMS() //计算 时分秒针弧度制，设置属性
         {
             window.setTimeout(function() {
@@ -83,7 +84,12 @@
             clear()
             draw_arc()
             var pi = Math.PI
-            var dat = new Date()
+            var dat = new Date();
+
+            var yyyy = dat.getFullYear(); //通过日期对象的getFullYear()方法返回年    
+            var MM = dat.getMonth() + 1; //通过日期对象的getMonth()方法返回年    
+            var dd = dat.getDate(); //通过日期对象的getDate()方法返回年     
+            // 如果分钟或小时的值小于10，则在其值前加0，比如如果时间是下午3点20分9秒的话，则显示15：20：09   
             var hours = dat.getHours() //获取小时
             var minuntes = dat.getMinutes() //获取分钟
             var seconds = dat.getSeconds() //获取秒
@@ -125,6 +131,8 @@
 
 
 
+            document.getElementById('nowDateTimeSpan').innerHTML = yyyy + "-" + MM + "-" + dd + " " + hours + ":" + minuntes + ":" + seconds + "   " + ms;
+
         }
 
         function draw_h_m_s(angle, length, width, color, size, pi) //画 时分秒针
@@ -165,8 +173,13 @@
             目前是 每 8ms 进行一次刷新, 目前 屏幕刷新率限制, 只能这么快了, 再快也看不出来区别
         </span>
 
-    </div>
+        <h2>
+            当前时间：
+            <font color="#FFFFFF"><span id="nowDateTimeSpan"></span></font>
 
+        </h2>
+
+    </div>
     <canvas id="Canvas" width="500" height="500">
         </canvas>
 </body>
